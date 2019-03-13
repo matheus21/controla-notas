@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'ControlaNotas',
 
     'title_prefix' => '',
 
