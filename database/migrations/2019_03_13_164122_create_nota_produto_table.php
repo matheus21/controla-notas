@@ -25,6 +25,7 @@ class CreateNotaProdutoTable extends Migration
             $table->foreign('produto_id')->references('id')->on('produto')
                 ->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
+            $table->timestamps();
         });
     }
 

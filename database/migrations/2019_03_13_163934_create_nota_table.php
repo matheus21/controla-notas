@@ -24,6 +24,8 @@ class CreateNotaTable extends Migration
 
             $table->foreign('cliente_id')->references('id')->on('cliente')
                 ->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
+            $table->timestamps();
         });
     }
 

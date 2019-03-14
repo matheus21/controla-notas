@@ -38,7 +38,8 @@ class DependencyInjectionProvider extends ServiceProvider
 
         $this->app->bind(Service\NotaService::class, function ($app) {
             return new Service\NotaService(
-                $app->make(Table\NotaRepository::class)
+                $app->make(Table\NotaRepository::class),
+                $app->make(Table\NotaProdutoRepository::class)
             );
         });
 

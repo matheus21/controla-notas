@@ -19,7 +19,7 @@ class Nota extends ModelAbstract
     {
         return [
             'data_emissao' => 'nullable|date_format:"Y-m-d"',
-            'cliente_id'   => 'nullable|exists:cliente,cliente_id',
+            'cliente_id'   => 'nullable|exists:cliente,id',
             'codigo'       => 'nullable',
             'observacao'   => 'nullable',
             'valor_total'  => 'nullable'

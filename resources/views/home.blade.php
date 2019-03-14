@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="cpf">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" value="{{old('cpf')}}"
+                        <input type="text" data-mask="000.000.000-00" class="form-control" id="cpf" name="cpf" value="{{old('cpf')}}"
                                placeholder="CPF">
                     </div>
                 </div>
@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                         <label for="cep">CEP</label>
-                        <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP"
+                        <input type="text" data-mask="00000-000" class="form-control" id="cep" name="cep" placeholder="CEP"
                                value="{{old('cep')}}">
                     </div>
                 </div>
@@ -58,13 +58,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
-                        <input type="text" class="form-control" id="telefone" name="telefone"
+                        <input type="text" data-mask="(00)0000-0000" class="form-control" id="telefone" name="telefone"
                                value="{{old('telefone')}}">
                     </div>
 
                     <div class="form-group">
                         <label for="data_nascimento">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento"
+                        <input type="text" data-mask="00/00/0000" class="form-control" id="data_nascimento" name="data_nascimento"
                                value="{{old('data_nascimento')}}">
                     </div>
                 </div>

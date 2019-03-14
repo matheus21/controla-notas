@@ -16,8 +16,8 @@ class NotaProduto extends ModelAbstract
     public function rules()
     {
         return [
-            'nota_id'    => 'nullable|exists:nota,nota_id',
-            'produto_id' => 'nullable|exists:produto,produto_id',
+            'nota_id'    => 'nullable|exists:nota,id',
+            'produto_id' => 'nullable|exists:produto,id',
             'quantidade' => 'nullable'
         ];
     }
