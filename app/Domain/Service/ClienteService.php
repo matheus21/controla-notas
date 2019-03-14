@@ -35,4 +35,10 @@ class ClienteService
         $clientes = $this->repository->all($campos);
         return $clientes;
     }
+
+    public function obterCliente(int $id): Cliente
+    {
+        $cliente = $this->repository->find($id);
+        return $cliente;
+    }
 }

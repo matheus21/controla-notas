@@ -2,6 +2,7 @@
 
 namespace ControlaNotas\Http\Controllers;
 
+use ControlaNotas\Domain\Model\Table\Nota;
 use ControlaNotas\Domain\Service\ClienteService;
 use ControlaNotas\Domain\Service\NotaService;
 use ControlaNotas\Domain\Service\ProdutoService;
@@ -40,8 +41,14 @@ class NotaController extends Controller
         $this->produtoService = $produtoService;
     }
 
-    public function form()
+    public function form($id = null)
     {
+
+        $nota = new Nota();
+        if($id) {
+            $nota = $this->service->obterNota($id);
+        }
+
         $clientes = $this->clienteService->obterClientes(['id', 'nome']);
         $produtos = $this->produtoService->obterProdutos(['id', 'nome', 'valor']);
 

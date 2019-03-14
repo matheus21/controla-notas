@@ -2,6 +2,7 @@
 
 namespace ControlaNotas\Http\Controllers;
 
+use ControlaNotas\Domain\Model\Table\Cliente;
 use ControlaNotas\Domain\Service\ClienteService;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,15 @@ class ClienteController extends Controller
         $this->service = $service;
     }
 
-    public function form()
+    public function form($id = null)
     {
-        return view('cliente.form');
+        $cliente = new Cliente();
+
+        if($id){
+            $cliente = $this->service->obterCliente($id);
+        }
+
+        return view('cliente.form', compact('cliente'));
     }
 
     public function post(Request $request)

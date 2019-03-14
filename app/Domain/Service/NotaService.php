@@ -48,4 +48,10 @@ class NotaService
 
         return $novaNota;
     }
+
+    public function obterNota(int $id): Nota
+    {
+        $nota = $this->repository->find($id);
+        return $nota;
+    }
 }

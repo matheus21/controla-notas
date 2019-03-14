@@ -34,4 +34,10 @@ class ProdutoService
         return $produtos;
     }
 
+    public function obterProduto(int $id): Produto
+    {
+        $produto = $this->repository->find($id);
+        return $produto;
+    }
+
 }
