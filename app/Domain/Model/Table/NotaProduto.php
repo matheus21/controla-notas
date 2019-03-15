@@ -10,7 +10,8 @@ class NotaProduto extends ModelAbstract
     protected $fillable = [
         'nota_id',
         'produto_id',
-        'quantidade'
+        'quantidade',
+        'valor_produto'
     ];
 
     public function rules()
@@ -18,17 +19,18 @@ class NotaProduto extends ModelAbstract
         return [
             'nota_id'    => 'nullable|exists:nota,id',
             'produto_id' => 'nullable|exists:produto,id',
-            'quantidade' => 'nullable'
+            'quantidade' => 'nullable',
+            'valor_produto' => 'nullable'
         ];
     }
 
     public function nota()
     {
-        return $this->hasMany(Nota::class, 'nota_id', 'id');
+        return $this->belongsTo(Nota::class, 'nota_id', 'id');
     }
 
     public function produto()
     {
-        return $this->hasMany(Produto::class, 'produto_id', 'id');
+        return $this->belongsTo(Produto::class, 'produto_id', 'id');
     }
 }

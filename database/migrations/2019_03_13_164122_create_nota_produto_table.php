@@ -18,6 +18,7 @@ class CreateNotaProdutoTable extends Migration
             $table->unsignedInteger('nota_id')->nullable();
             $table->unsignedInteger('produto_id')->nullable();
             $table->unsignedBigInteger('quantidade')->nullable();
+            $table->decimal('valor_produto', 10,2)->nullable();
 
             $table->foreign('nota_id')->references('id')->on('nota')
                 ->onUpdate('RESTRICT')->onDelete('RESTRICT');

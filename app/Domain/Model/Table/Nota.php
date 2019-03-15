@@ -34,6 +34,6 @@ class Nota extends ModelAbstract
 
     public function notaProduto()
     {
-        return $this->belongsTo(NotaProduto::class, 'nota_id', 'id');
+        return $this->hasMany(NotaProduto::class, 'nota_id', 'id');
     }
 }

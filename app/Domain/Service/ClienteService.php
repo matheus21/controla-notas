@@ -25,8 +25,13 @@ class ClienteService
 
     public function cadastrar(array $cliente): Cliente
     {
-        $cliente['data_nascimento'] = Carbon::createFromFormat('d/m/Y', $cliente['data_nascimento'])->format('Y-m-d');
         $cliente = $this->repository->create($cliente);
+        return $cliente;
+    }
+
+    public function atualizar(array $cliente, int $id): Cliente
+    {
+        $cliente = $this->repository->update($cliente, $id);
         return $cliente;
     }
 
@@ -40,5 +45,15 @@ class ClienteService
     {
         $cliente = $this->repository->find($id);
         return $cliente;
+    }
+
+    public function listarClientes(array $parametros, $paginar = true)
+    {
+        $parametros = array_filter($parametros);
+        $clientes = $this->repository->findBy($parametros)->get();
+        if ($paginar) {
+            $clientes = $this->repository->findBy($parametros)->paginate(5);
+        }
+        return $clientes;
     }
 }

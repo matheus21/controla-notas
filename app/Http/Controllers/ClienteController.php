@@ -38,7 +38,22 @@ class ClienteController extends Controller
         $cliente = $request->all();
         $this->service->cadastrar($cliente);
 
-        return view('cliente.form');
+        return redirect()->route('cliente.list');
+    }
+
+    public function list(Request $request)
+    {
+        $clientes = $this->service->listarClientes($request->all());
+
+        return view('cliente.list', compact('clientes'));
+    }
+
+    public function put(Request $request, $id)
+    {
+        $cliente = $request->all();
+        $this->service->atualizar($cliente, $id);
+
+        return redirect()->route('cliente.list');
     }
 
 }

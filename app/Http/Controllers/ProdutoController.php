@@ -40,4 +40,19 @@ class ProdutoController extends Controller
 
         return view('produto.form');
     }
+
+    public function list(Request $request)
+    {
+        $produtos = $this->service->listarProdutos($request->all());
+
+        return view('produto.list', compact('produtos'));
+    }
+
+    public function put(Request $request, $id)
+    {
+        $produto = $request->all();
+        $this->service->atualizar($produto, $id);
+
+        return redirect()->route('produto.list');
+    }
 }

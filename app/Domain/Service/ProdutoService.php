@@ -28,6 +28,12 @@ class ProdutoService
         return $produto;
     }
 
+    public function atualizar(array $produto, int $id): Produto
+    {
+        $produto = $this->repository->update($produto, $id);
+        return $produto;
+    }
+
     public function obterProdutos(array $campos): Collection
     {
         $produtos = $this->repository->all($campos);
@@ -38,6 +44,16 @@ class ProdutoService
     {
         $produto = $this->repository->find($id);
         return $produto;
+    }
+
+    public function listarProdutos(array $parametros, $paginar = true)
+    {
+        $parametros = array_filter($parametros);
+        $produtos = $this->repository->findBy($parametros)->get();
+        if ($paginar) {
+            $produtos = $this->repository->findBy($parametros)->paginate(5);
+        }
+        return $produtos;
     }
 
 }
