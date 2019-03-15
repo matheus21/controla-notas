@@ -88,4 +88,10 @@ class NotaService
         }
         return $notas;
     }
+
+    public function deletarNotas($id): bool
+    {
+        $this->notaProdutoRepository->deleteWhere(['nota_id' => $id]);
+        return $this->repository->delete($id);
+    }
 }

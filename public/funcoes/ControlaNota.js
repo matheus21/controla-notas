@@ -99,5 +99,21 @@ function alteraActionForm(botaoSubmit){
     form.attr('action', route);
 }
 
+function confirmaDeletarNota(linkDeletar){
+
+    swal({
+        text: "Deseja deletar esta nota?",
+        icon: "warning",
+        buttons: {cancel: "Fechar", confirm: "Ok"},
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            linkDeletar.removeAttr('onclick');
+            linkDeletar.click();
+        }
+        return false;
+    });
+}
+
 select2();
 

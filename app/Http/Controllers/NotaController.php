@@ -88,4 +88,10 @@ class NotaController extends Controller
         return PDF::loadView('nota.relatorio', compact('notas'))
             ->download('relatorio_notas.pdf');
     }
+
+    public function delete($id)
+    {
+        $this->service->deletarNotas($id);
+        return redirect()->route('nota.list');
+    }
 }
