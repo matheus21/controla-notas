@@ -20,6 +20,5 @@ class ClienteRepository extends AbstractRepository implements ClienteRepositoryI
 
     public function obterClientes(): Collection
     {
-
     }
 }

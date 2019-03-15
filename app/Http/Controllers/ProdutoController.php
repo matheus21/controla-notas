@@ -38,7 +38,7 @@ class ProdutoController extends Controller
         $produto = $request->all();
         $this->service->cadastrar($produto);
 
-        return view('produto.form');
+        return redirect()->route('produto.list');
     }
 
     public function list(Request $request)

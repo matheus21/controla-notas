@@ -14,7 +14,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body box box-primary">
-            <form id="formProduto" name="produto_form" method="post" action="@if($produto->id) {{route('produto.edit', [$produto->id])}} @else {{route('produto.form')}} @endif">
+            <form id="formProduto" name="produto_form" method="post" action="@if($produto->id) {{route('produto.edit', [$produto->id])}} @else {{route('produto.post')}} @endif">
                 {{csrf_field()}}
                 <div class="row">
                     <div class="col-md-6">
