@@ -69,8 +69,21 @@ function removerProduto(botaoRemover) {
     });
 }
 
-function removerClone() {
+function removerClone(form) {
+    let quantidadeProdutos = $('.list-group-item:visible').length;
+
+    if(quantidadeProdutos <= 0) {
+        swal({
+            title: "Aviso",
+            text: "Insira ao menos um produto na nota!",
+            icon: "error",
+            button: "Ok",
+        });
+        return false;
+    }
+
     $('#item_clone').not(':visible').remove();
+    form.submit();
 }
 
 function exibirAlerta(texto, botao){

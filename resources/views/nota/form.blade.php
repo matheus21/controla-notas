@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <form id="formNota" onsubmit="removerClone();" name="nota_form" method="post" action="@if($nota->id) {{route('nota.edit', [$nota->id])}} @else {{route('nota.post')}} @endif">
+    <form id="formNota" onsubmit="return removerClone($(this));" name="nota_form" method="post" action="@if($nota->id) {{route('nota.edit', [$nota->id])}} @else {{route('nota.post')}} @endif">
         <div class="panel panel-default">
             <div class="panel-body box box-primary">
                 {{csrf_field()}}
