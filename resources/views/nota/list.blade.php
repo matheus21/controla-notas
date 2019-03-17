@@ -63,7 +63,7 @@
                         <td>{{$nota->codigo}}</td>
                         <td>R$ {{number_format($nota->valor_total, 2, '.', ',')}}</td>
                         <td><a href="{{route('nota.form', [$nota->id])}}" class="btn btn-warning" title="Editar Nota"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('nota.delete', [$nota->id])}}" class="btn btn-danger" onclick="return confirmaDeletarNota($(this));" title="Excluir Nota"><i class="fa fa-times"></i></a></td>
+                        <a href="{{route('nota.delete', [$nota->id])}}" class="btn btn-danger" onclick="return confirmaDeletarNota(event, $(this));" title="Excluir Nota"><i class="fa fa-times"></i></a></td>
                     </tr>
                 @endforeach
                 </tbody>

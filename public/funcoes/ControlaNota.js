@@ -99,17 +99,17 @@ function alteraActionForm(botaoSubmit){
     form.attr('action', route);
 }
 
-function confirmaDeletarNota(linkDeletar){
+function confirmaDeletarNota(event, linkDeletar){
 
+    event.preventDefault();
     swal({
         text: "Deseja deletar esta nota?",
         icon: "warning",
-        buttons: {cancel: "Fechar", confirm: "Ok"},
+        buttons: {cancel: "Fechar", confirm: "Deletar"},
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            linkDeletar.removeAttr('onclick');
-            linkDeletar.click();
+            window.location.href = linkDeletar.attr('href');
         }
         return false;
     });
